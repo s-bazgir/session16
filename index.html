@@ -1,0 +1,77 @@
+<html>
+    <head>
+      <style>
+        body{
+            direction: ltr;
+        }
+        .container{
+            width: 700px;
+            margin: 150px auto;
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+        .header-random-calculator{           
+           width:100%;
+           background-color: #00baee;
+           text-align: center;
+           padding-top: 3px;
+           padding-bottom: 3px;
+           color: #fff;
+           margin-bottom: 50px;
+           }
+           label{
+            display: block;
+            margin-bottom: 15px;
+           }
+           input{
+            display: block;
+            margin-bottom: 15px;
+           }
+           .input-group{
+            width:220px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+           }
+           #btn-calc{
+             border-radius: 15px;
+             color: #fff;
+             background:#00baee;
+             border: 0;
+             width:150px;
+             padding-top: 10px;
+             padding-bottom:  10px;
+             margin-left: 30px;
+           }
+           
+      </style>
+    </head>
+    <body>
+        <main class="container">
+           <header class="header-random-calculator">
+              <h1>Random Calculator</h1>
+           </header>
+           <div class="input-group">
+               <label id="from" for="from-input">From</label>
+               <input type="text"  id="from-input" />
+           </div>
+           <div class="input-group">
+               <label id="to" for="to-input">To</label>
+               <input type="text"  id="to-input" />
+           </div>
+           <button id="btn-calc">Calculate</button>
+           <p id="result"></p>
+        </main>
+        <script>
+            document.getElementById("btn-calc").addEventListener("click",calc);
+            function calc(){
+                var firstInput = parseInt(document.getElementById("from-input").value);
+                var secondInput = parseInt(document.getElementById("to-input").value);
+                var random = Math.floor(Math.random()*(secondInput - firstInput+1)) + firstInput;   
+                document.getElementById("result").innerHTML= "random number id:" + random;
+            }
+        </script>
+    </body>
+</html>

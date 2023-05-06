@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>
+            محاسبه گر
+        </title>
+        <style>
+          body{
+            direction: ltr;
+            margin: 0;
+            padding: 0;
+          }  
+          ul , li ,ol{
+            list-style: none;
+          }
+          a{
+            text-decoration: none;
+          }
+          .container{
+            width:700px;
+            margin: 200px auto;
+          }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+           <input type="text" id="operand1"/>
+           <select id="operator">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+           </select>
+           <input type="text" id="operand2"/>
+           <button id="calculate"> محاسبه</button>
+           <label id="result"></label>
+        </div> 
+        <script>
+          document.getElementById("calculate").addEventListener("click",calc);
+          function calc(){
+            
+            var firstOperand = parseInt(document.getElementById("operand1").value);
+            var secondOperand = parseInt(document.getElementById("operand2").value);
+            var result = document.getElementById("result");            
+            var operator = document.getElementById("operator").options[document.getElementById("operator").selectedIndex].value;
+            result.innerHTML = eval( firstOperand + operator + secondOperand); 
+          }
+        </script>
+    </body>
+</html>
